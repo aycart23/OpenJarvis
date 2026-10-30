@@ -1,7 +1,17 @@
+import subprocess
+import sys
+
+# Auto-instalar groq si la nube no lo detecta
+try:
+    import groq
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "groq==0.4.2"])
+    import groq
+
 import streamlit as st
 from groq import Groq
 
-st.set_page_config(page_title="JARVIS - Sistema Central", page_icon="⚡") 
+st.set_page_config(page_title="JARVIS - Sistema Central", page_icon="⚡")
 
 st.title("⚡ J.A.R.V.I.S. Cloud")
 st.caption("Sistema de Asistencia Autónoma - En línea 24/7")
@@ -10,7 +20,7 @@ st.caption("Sistema de Asistencia Autónoma - En línea 24/7")
 api_key = st.secrets.get("GROQ_API_KEY")
 
 if not api_key:
-    st.error("⚠️ Señor, falta configurar la llave GROQ_API_KEY en las opciones avanzadas.")
+    st.error("⚠️ Señor, falta configurar la llave GROQ_API_KEY en las opciones avanzadas de Streamlit.")
 else:
     client = Groq(api_key=api_key)
 

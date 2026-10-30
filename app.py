@@ -1,3 +1,13 @@
+import sys
+import subprocess
+
+# Instalación automática blindada para Streamlit Cloud
+try:
+    import groq
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "groq==0.4.2"])
+    import groq
+
 import streamlit as st
 from groq import Groq
 

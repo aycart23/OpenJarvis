@@ -1,7 +1,7 @@
 import streamlit as st
 from groq import Groq
 
-st.set_page_config(page_title="JARVIS - Sistema Central", page_icon="⚡")
+st.set_page_config(page_title="JARVIS - Sistema Central", page_icon="⚡") 
 
 st.title("⚡ J.A.R.V.I.S. Cloud")
 st.caption("Sistema de Asistencia Autónoma - En línea 24/7")
